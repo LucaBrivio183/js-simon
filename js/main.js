@@ -49,10 +49,15 @@ showResult.innerHTML = `${simonSaid}`;
 //erase at screen showed numbers and show right numbers
 setTimeout(function(){
     showResult.innerHTML = '';
+},30000)
+
+setTimeout(function(){
+
     let userResponse = getUserArray(5);
     let remainingArray = compareArray(userResponse, simonSaid);
     showResult.innerHTML = `${remainingArray}`
-},10001)
+},30500)
+
 
 
 
