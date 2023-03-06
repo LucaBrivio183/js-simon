@@ -39,12 +39,24 @@ function compareArray(array,comparingArray) {
 
     return array;
 }
+//function for showing elements on screen
+function printArrayToScreen(array,parentElement) {
+  
+    array.forEach(element => {
+      let elementPara = document.createElement("span");
+      let elementText = document.createTextNode(element);
+      elementPara.appendChild(elementText);
+      parentElement.appendChild(elementPara);
+    });
+  
+    document.body.appendChild(parentElement);
+  }
 
 //-----------------------main---------------------------------------//
 
 const simonSaid = generateRandomArray(100,5);
 const showResult = document.getElementById('show-results');
-showResult.innerHTML = `${simonSaid}`;
+printArrayToScreen(simonSaid,showResult);
 
 //erase at screen showed numbers and show right numbers
 setTimeout(function(){
@@ -55,7 +67,8 @@ setTimeout(function(){
 
     let userResponse = getUserArray(5);
     let remainingArray = compareArray(userResponse, simonSaid);
-    showResult.innerHTML = `${remainingArray}`
+    printArrayToScreen(remainingArray,showResult);
+    
 },30500)
 
 
