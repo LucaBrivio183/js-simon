@@ -56,6 +56,7 @@ function printArrayToScreen(array,parentElement) {
 
 const simonSaid = generateRandomArray(100,5);
 const showResult = document.getElementById('show-results');
+const h1 = document.querySelector('h1');
 printArrayToScreen(simonSaid,showResult);
 
 //erase at screen showed numbers and show right numbers
@@ -68,7 +69,7 @@ setTimeout(function(){
     let userResponse = getUserArray(5);
     let remainingArray = compareArray(userResponse, simonSaid);
     printArrayToScreen(remainingArray,showResult);
-    
+    h1.innerHTML = 'you got:'
 },30500)
 
 
