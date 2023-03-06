@@ -15,11 +15,6 @@ function generateRandomArray(maxNumber,arrayLength) {
     return array;
   }
 
-//function for erasing DOM elemnent content by ID
-function  eraseDomElementContent (domElementId) {
-    let  eraser = document.getElementById('domElementId');
-    eraser.innerHTML = '';
-}
 
 //function for creating an erray from user prompts
 function getUserArray(arrayLength) {
@@ -47,14 +42,18 @@ function compareArray(array,comparingArray) {
 
 //-----------------------main---------------------------------------//
 
-const simonSay = generateRandomArray(100,5);
+const simonSaid = generateRandomArray(100,5);
 const showResult = document.getElementById('show-results');
+showResult.innerHTML = `${simonSaid}`;
 
-console.log( `${simonSay}`);
-showResult.innerHTML = `${simonSay}`;
+//erase at screen showed numbers and show right numbers
+setTimeout(function(){
+    showResult.innerHTML = '';
+    let userResponse = getUserArray(5);
+    let remainingArray = compareArray(userResponse, simonSaid);
+    showResult.innerHTML = `${remainingArray}`
+},10001)
 
-const userResponse = getUserArray(5);
 
-const remainingArray = compareArray(userResponse, simonSay);
 
-console.log (remainingArray);
+
